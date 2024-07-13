@@ -32,4 +32,7 @@ public class Book {
     @JsonIgnoreProperties({"authors"})
     @OneToMany(mappedBy = "book")
     private List<Rental> rentals;
+
+    @Column
+    private Integer year;
 }

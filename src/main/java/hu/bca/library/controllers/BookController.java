@@ -23,4 +23,18 @@ public class BookController {
     @ResponseBody Book addAuthor(@PathVariable Long bookId, @PathVariable Long authorId) {
         return this.bookService.addAuthor(bookId, authorId);
     }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PatchMapping("/update-all-with-year")
+    public void updateAllWithYear() {
+        bookService.updateAllWithYear();
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping("/query/{authorOrigin}")
+    @ResponseBody
+    public List<Book> getBooksByAuthorOrigin(@PathVariable String authorOrigin,
+                                             @RequestParam(required = false) Integer from) {
+        return bookService.getBooksByAuthorOrigin(authorOrigin, from);
+    }
 }
