@@ -6,4 +6,8 @@ import java.util.List;
 
 public interface BookService {
     Book addAuthor(Long bookId, Long authorId);
+
+    void updateAllWithYear();
+
+    List<Book> getBooksByAuthorOrigin(String authorOrigin, Integer from);
 }
